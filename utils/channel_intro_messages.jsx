@@ -349,7 +349,7 @@ export function createStandardIntroMessage(channel, centeredIntro) {
 function createInviteChannelMemberButton(channel, uiType) {
     return (
         <ToggleModalButton
-            className='intro-links'
+            className='intro-links color--link'
             dialogType={ChannelInviteModal}
             dialogProps={{channel}}
         >
@@ -368,7 +368,7 @@ function createInviteChannelMemberButton(channel, uiType) {
 function createSetHeaderButton(channel) {
     return (
         <ToggleModalButton
-            className='intro-links'
+            className='intro-links color--link'
             dialogType={EditChannelHeaderModal}
             dialogProps={{channel}}
         >
