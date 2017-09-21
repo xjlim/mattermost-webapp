@@ -1,0 +1,5 @@
+dist
+.yarninstall
+node_modules
+*.swp
+.idea

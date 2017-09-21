@@ -3,7 +3,7 @@
 
 import TeamMembersModal from './team_members_modal.jsx';
 import ToggleModalButton from './toggle_modal_button.jsx';
-import AboutBuildModal from './about_build_modal.jsx';
+import AboutBuildModal from 'components/about_build_modal';
 import AddUsersToTeam from 'components/add_users_to_team';
 
 import UserStore from 'stores/user_store.jsx';
@@ -82,7 +82,7 @@ export default class SidebarRightMenu extends React.Component {
     getFlagged(e) {
         e.preventDefault();
         getFlaggedPosts();
-        this.hideSidebars();
+        this.closeRightSidebar();
     }
 
     componentDidMount() {
@@ -113,11 +113,12 @@ export default class SidebarRightMenu extends React.Component {
     searchMentions(e) {
         e.preventDefault();
         const user = this.state.currentUser;
+
         if (SearchStore.isMentionSearch) {
             GlobalActions.toggleSideBarAction(false);
         } else {
+            this.closeRightSidebar();
             GlobalActions.emitSearchMentionsEvent(user);
-            this.hideSidebars();
         }
     }
 
@@ -139,9 +140,12 @@ export default class SidebarRightMenu extends React.Component {
         }
     }
 
-    hideSidebars() {
+    closeRightSidebar() {
         if (Utils.isMobile()) {
-            GlobalActions.toggleSideBarRightMenuAction();
+            setTimeout(() => {
+                document.querySelector('.app__body .inner-wrap').classList.remove('move--left-small');
+                document.querySelector('.app__body .sidebar--menu').classList.remove('move--left');
+            });
         }
     }
 
@@ -193,7 +197,7 @@ export default class SidebarRightMenu extends React.Component {
                 </li>
             );
 
-            if (this.props.teamType === 'O') {
+            if (this.props.teamType === Constants.OPEN_TEAM && global.mm_config.EnableUserCreation === 'true') {
                 teamLink = (
                     <li>
                         <a
