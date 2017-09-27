@@ -111,9 +111,7 @@ export default class ChannelHeader extends React.Component {
         }
     }
 
-    toggleFavorite = (e) => {
-        e.preventDefault();
-
+    toggleFavorite = () => {
         if (this.props.isFavorite) {
             this.props.actions.unfavoriteChannel(this.props.channel.id);
         } else {
@@ -303,14 +301,8 @@ export default class ChannelHeader extends React.Component {
 
                 webrtc = (
                     <div className='webrtc__header channel-header__icon'>
-<<<<<<< HEAD:components/channel_header/channel_header.jsx
-                        <a
-                            href='#'
-                            onClick={() => this.initWebrtc(dmUserId, !isOffline)}
-=======
                         <div
-                            onClick={() => this.initWebrtc(otherUserId, !isOffline)}
->>>>>>> PLT-6828 - Removing urls for links:components/channel_header.jsx
+                            onClick={() => this.initWebrtc(dmUserId, !isOffline)}
                             disabled={isOffline}
                         >
                             <OverlayTrigger
@@ -772,17 +764,10 @@ export default class ChannelHeader extends React.Component {
                 <span
                     id='toggleFavorite'
                     onClick={this.toggleFavorite}
-<<<<<<< HEAD:components/channel_header/channel_header.jsx
-                    className={'channel-header__favorites ' + (this.props.isFavorite ? 'active' : 'inactive')}
+                    className={'channel-header__favorites cursor--pointer ' + (this.props.isFavorite ? 'active color--link' : 'inactive')}
                 >
                     <i className={'icon fa ' + (this.props.isFavorite ? 'fa-star' : 'fa-star-o')}/>
-                </a>
-=======
-                    className={'channel-header__favorites color--link ' + (this.state.isFavorite ? 'active' : 'inactive')}
-                >
-                    <i className={'icon fa ' + (this.state.isFavorite ? 'fa-star' : 'fa-star-o')}/>
                 </span>
->>>>>>> PLT-6828 - Removing urls for links:components/channel_header.jsx
             </OverlayTrigger>
         );
 
