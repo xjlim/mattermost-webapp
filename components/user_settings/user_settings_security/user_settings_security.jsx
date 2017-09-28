@@ -1429,7 +1429,7 @@ export default class SecurityTab extends React.Component {
                     <div className='divider-dark'/>
                     <br/>
                     <ToggleModalButton
-                        className='security-links theme'
+                        className='security-links color--link'
                         dialogType={AccessHistoryModal}
                     >
                         <i className='fa fa-clock-o'/>
@@ -1438,9 +1438,8 @@ export default class SecurityTab extends React.Component {
                             defaultMessage='View Access History'
                         />
                     </ToggleModalButton>
-                    <br/>
                     <ToggleModalButton
-                        className='security-links theme'
+                        className='security-links color--link margin-top'
                         dialogType={ActivityLogModal}
                     >
                         <i className='fa fa-clock-o'/>
